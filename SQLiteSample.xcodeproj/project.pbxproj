@@ -13,6 +13,12 @@
 		A3D98C5D22264E3200B18693 /* SQLiteSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C5B22264E3200B18693 /* SQLiteSample.xcdatamodeld */; };
 		A3D98C5F22264E3300B18693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D98C5E22264E3300B18693 /* Assets.xcassets */; };
 		A3D98C6222264E3300B18693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D98C6022264E3300B18693 /* LaunchScreen.storyboard */; };
+		A3D98C6B22264E7B00B18693 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C6A22264E7B00B18693 /* SQLiteDatabase.swift */; };
+		A3D98C6D22264F9400B18693 /* SQLiteDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C6C22264F9400B18693 /* SQLiteDatabaseError.swift */; };
+		A3D98C70222650B200B18693 /* SQLiteRowDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C6F222650B200B18693 /* SQLiteRowDataProtocol.swift */; };
+		A3D98C742226578400B18693 /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C732226578400B18693 /* SampleModel.swift */; };
+		A3D98C762226578E00B18693 /* DataModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C752226578E00B18693 /* DataModelProtocol.swift */; };
+		A3D98C782226723400B18693 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D98C772226723400B18693 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		A3D98C5E22264E3300B18693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3D98C6122264E3300B18693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3D98C6322264E3300B18693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D98C6A22264E7B00B18693 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		A3D98C6C22264F9400B18693 /* SQLiteDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaseError.swift; sourceTree = "<group>"; };
+		A3D98C6F222650B200B18693 /* SQLiteRowDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteRowDataProtocol.swift; sourceTree = "<group>"; };
+		A3D98C732226578400B18693 /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
+		A3D98C752226578E00B18693 /* DataModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelProtocol.swift; sourceTree = "<group>"; };
+		A3D98C772226723400B18693 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				A3D98C5422264E3200B18693 /* AppDelegate.swift */,
+				A3D98C6922264E6A00B18693 /* Database */,
 				A3D98C5622264E3200B18693 /* ViewController.swift */,
+				A3D98C772226723400B18693 /* TableViewCell.swift */,
 				A3D98C5822264E3200B18693 /* Main.storyboard */,
 				A3D98C5E22264E3300B18693 /* Assets.xcassets */,
 				A3D98C6022264E3300B18693 /* LaunchScreen.storyboard */,
@@ -65,6 +79,42 @@
 				A3D98C5B22264E3200B18693 /* SQLiteSample.xcdatamodeld */,
 			);
 			path = SQLiteSample;
+			sourceTree = "<group>";
+		};
+		A3D98C6922264E6A00B18693 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A3D98C72222654C500B18693 /* SQLiteDatabase */,
+				A3D98C71222654B500B18693 /* DataModel */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		A3D98C6E2226509000B18693 /* SQLiteRowDataProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				A3D98C6F222650B200B18693 /* SQLiteRowDataProtocol.swift */,
+			);
+			path = SQLiteRowDataProtocol;
+			sourceTree = "<group>";
+		};
+		A3D98C71222654B500B18693 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A3D98C732226578400B18693 /* SampleModel.swift */,
+				A3D98C752226578E00B18693 /* DataModelProtocol.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		A3D98C72222654C500B18693 /* SQLiteDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				A3D98C6A22264E7B00B18693 /* SQLiteDatabase.swift */,
+				A3D98C6E2226509000B18693 /* SQLiteRowDataProtocol */,
+				A3D98C6C22264F9400B18693 /* SQLiteDatabaseError.swift */,
+			);
+			path = SQLiteDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +190,13 @@
 			files = (
 				A3D98C5D22264E3200B18693 /* SQLiteSample.xcdatamodeld in Sources */,
 				A3D98C5722264E3200B18693 /* ViewController.swift in Sources */,
+				A3D98C6B22264E7B00B18693 /* SQLiteDatabase.swift in Sources */,
+				A3D98C782226723400B18693 /* TableViewCell.swift in Sources */,
+				A3D98C6D22264F9400B18693 /* SQLiteDatabaseError.swift in Sources */,
+				A3D98C70222650B200B18693 /* SQLiteRowDataProtocol.swift in Sources */,
+				A3D98C742226578400B18693 /* SampleModel.swift in Sources */,
 				A3D98C5522264E3200B18693 /* AppDelegate.swift in Sources */,
+				A3D98C762226578E00B18693 /* DataModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79JAW5V2W8;
 				INFOPLIST_FILE = SQLiteSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79JAW5V2W8;
 				INFOPLIST_FILE = SQLiteSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

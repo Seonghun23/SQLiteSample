@@ -78,8 +78,7 @@ class ViewController: UIViewController {
         }
         
         guard let _ =  try? database.insert(table: data.tableName,
-                                            columns: data.columns,
-                                            rows: data.rows)
+                                            data: data)
             else
         {
             print("Fail to insert data to database")

@@ -12,11 +12,22 @@ protocol DataModelProtocol {
     
     // MARK:- Properties
     var tableName: String { get }
-    var columns: [String] { get }
-    var columnTypeQuery: [Int: String] { get }
-    var rows: [Int: SQLiteRowDataProtocol] { get }
+    var columns: [Column] { get }
     
     // MARK:- Initialize
     init()
     init(data: [String: SQLiteRowDataProtocol])
+}
+
+enum ColumnType: String {
+    case text = "TEXT"
+    case integer = "INTEGER"
+    case double = "DOUBLE"
+    case char = "CHAR"
+}
+
+struct Column {
+    var name: String
+    var type: ColumnType
+    var row: SQLiteRowDataProtocol
 }

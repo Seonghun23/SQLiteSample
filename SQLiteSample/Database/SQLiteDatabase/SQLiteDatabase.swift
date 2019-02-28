@@ -72,10 +72,8 @@ class SQLiteDatabase {
         #warning("New Code")
         // 새로 변경된 코드입니다. 다양한 자료형을 지원하기 위해 모델에서 쿼리문에 필요한 값을 반환하도록 만들었습니다.
         var column = ""
-        dataModel.columns.enumerated().forEach{ (i, v) in
-            if let typeQuery = dataModel.columnTypeQuery[i] {
-                column.append(", \(v) \(typeQuery)")
-            }
+        dataModel.columns.forEach{
+            column.append(", \($0.name) \($0.type.rawValue)")
         }
         
         // 아래 코드는 예전 코드입니다.
@@ -108,15 +106,16 @@ class SQLiteDatabase {
     }
     
     // MARK:- Insert rows at table in SQLite Database
-    final func insert(table: String, columns: [String], rows: [Int: SQLiteRowDataProtocol])
+    final func insert(table: String, data: SampleModel)
         throws -> Bool
     {
         var field = ""
         var fieldCount = ""
-        columns.enumerated().forEach{ (i, v) in
-            field += "\(i != 0 ? ", " : "")\(v)"
+        data.columns.enumerated().forEach{ (i, v) in
+            field += "\(i != 0 ? ", " : "")\(v.name)"
             fieldCount += "\(i != 0 ? ", ?" : "?")"
         }
+ 
         let query = "INSERT INTO \(table) (\(field)) VALUES (\(fieldCount));"
         
         let statement = try prepare(query: query)
@@ -125,15 +124,13 @@ class SQLiteDatabase {
             sqlite3_finalize(statement)
         }
         
-        for i in columns.indices {
+        for (i, v) in data.columns.enumerated() {
             let index = Int32(i + 1)
             
             #warning("New Code")
-            // 새로 변경된 코드입니다. 사용할 자료형은 모두 SQLiteRowDataProtocol 를 채택하고 따르고 있습니다. 
-            if let row = rows[i] {
-                if !row.bindData(statement: statement, index: index) {
-                    throw SQLiteError.bind(message: errorMessage)
-                }
+            // 새로 변경된 코드입니다. 사용할 자료형은 모두 SQLiteRowDataProtocol 를 채택하고 따르고 있습니다.
+            if !v.row.bindData(statement: statement, index: index) {
+                throw SQLiteError.bind(message: errorMessage)
             }
             
             // 아래 코드는 예전 코드입니다.

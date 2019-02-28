@@ -27,30 +27,12 @@ extension SampleModel: DataModelProtocol {
         return "SampleTable"
     }
     
-    var columns: [String] {
+    var columns: [Column] {
         return [
-            "string",
-            "int",
-            "double",
-            "bool"
-        ]
-    }
-    
-    var columnTypeQuery: [Int : String] {
-        return [
-            0: "TEXT",
-            1: "INTEGER",
-            2: "DOUBLE",
-            3: "INTEGER"
-        ]
-    }
-    
-    var rows: [Int : SQLiteRowDataProtocol] {
-        return [
-            0: string,
-            1: int,
-            2: double,
-            3: bool,
+            Column(name: "string", type: .text, row: string),
+            Column(name: "int", type: .integer, row: int),
+            Column(name: "double", type: .double, row: double),
+            Column(name: "bool", type: .integer, row: bool)
         ]
     }
     
@@ -68,3 +50,4 @@ extension SampleModel: DataModelProtocol {
         self.bool = data["bool"] as? Int == 1
     }
 }
+
